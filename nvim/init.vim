@@ -5,6 +5,9 @@ Plug 'junegunn/fzf.vim'
 
 " coc
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+" nerdtree
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " ============================================================================
@@ -172,3 +175,7 @@ endfunction
 
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" ===== nerdtree =====
+" open nerdtree with <C-n>
+map <C-n> :NERDTreeToggle<CR>
