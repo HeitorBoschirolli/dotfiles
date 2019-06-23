@@ -3,8 +3,8 @@
     "python": {
       "command": "python",
       "args": [
-        "-mpyls",
-        "-vv",
+	"-mpyls",
+	"-vv",
         "--log-file",
         "/tmp/lsp_python.log"
       ],
@@ -23,14 +23,11 @@
             "pycodestyle"
           ],
           "plugins": {
-	    "pylint": {
-	      "enabled": true
-	    },
             "jedi_completion": {
               "enabled": true
             },
-            "jedi_hover": {
-              "enabled": true
+	    "jedi_hover": {
+            "enabled": true
             },
             "jedi_references": {
               "enabled": true
