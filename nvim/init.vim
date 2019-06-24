@@ -8,6 +8,16 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " nerdtree
 Plug 'scrooloose/nerdtree'
+
+" airline
+Plug 'vim-airline/vim-airline'
+
+" fugitive.vim
+Plug 'tpope/vim-fugitive'
+
+" themes
+Plug 'challenger-deep-theme/vim', { 'name': 'challenger-deep' }
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " ============================================================================
@@ -32,6 +42,16 @@ set mouse=v
 
 " highlight search results
 set hlsearch
+
+" show line numbers
+set number
+
+" show line numbers relative to the current line
+set relativenumber
+
+" when a file has been detected to have been changed outside of Vim and it has not been
+" changed inside of Vim, automatically read it again.
+set autoread
 
 " use CTRL+{h, j, k, l} to navigate windows form any mode
 tnoremap <C-h> <C-\><C-N><C-w>h
@@ -179,3 +199,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " ===== nerdtree =====
 " open nerdtree with <C-n>
 map <C-n> :NERDTreeToggle<CR>
+
+" ===== gruvbox (theme) =====
+let g:gruvbox_contrast_dark='normal'
+colorscheme gruvbox
