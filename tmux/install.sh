@@ -1,10 +1,10 @@
 # tmux not installed: install it
-if ! hash tmux; then
+if ! hash tmux 2>/dev/null; then
   sudo dnf install tmux
 fi
 
 # powerline fonts not installed: install it
-if ! hash powerline-fonts; then
+if ! hash powerline-fonts 2>/dev/null; then
   sudo dnf install powerline-fonts
 fi
 
