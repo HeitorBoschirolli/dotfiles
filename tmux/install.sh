@@ -9,6 +9,6 @@ if ! hash powerline-fonts; then
 fi
 
 # create soft link in home dir
-ln -s -f .tmux.conf ~/.tmux.conf
+ln -s -f $(pwd)/.tmux.conf ~/.tmux.conf
 cp .tmux.conf.local ~/
 
