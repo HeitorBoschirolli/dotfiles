@@ -14,3 +14,12 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 mkdir -p ~/.config/nvim
 touch ~/.config/nvim/init.vim
 ln -s -f $(pwd)/init.vim ~/.config/nvim/init.vim
+
+#####################################
+### plugin dependencies
+#####################################
+
+# powerline fonts not installed: install it
+if ! hash powerline-fonts 2>/dev/null; then
+  sudo dnf install powerline-fonts
+fi
