@@ -1,2 +1,2 @@
-call plug#begin()
+call plug#begin('~/.config/nvim')
 call plug#end()
