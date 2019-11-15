@@ -1,205 +1,264 @@
-call plug#begin()
-" fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Print friendly cat face when vim starts
+echo ">^.^<"
 
-" coc
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" basic config ---------------------- {{{
 
-" nerdtree
-Plug 'scrooloose/nerdtree'
+" Use ',' as the leader key
+let mapleader = ","
 
-" airline
-Plug 'vim-airline/vim-airline'
+" Use '_' as the local leader key
+let maplocalleader = '-'
 
-" fugitive.vim
-Plug 'tpope/vim-fugitive'
 
-" themes
-Plug 'challenger-deep-theme/vim', { 'name': 'challenger-deep' }
-Plug 'morhetz/gruvbox'
-call plug#end()
-
-" ============================================================================
-" Basic Setup
-" ============================================================================
-" disable compatibility to old-time vi
-set nocompatible
-
-" remap leader key to ,
-let g:mapleader=','
-
-" encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-
-" show matching brackets.
-set showmatch
-
-" middle-click paste with mouse
-set mouse=v
-
-" highlight search results
-set hlsearch
-
-" show line numbers
+" Show line numbers
 set number
 
-" show line numbers relative to the current line
+" Show the line number relative to the line with the cursor
 set relativenumber
 
-" when a file has been detected to have been changed outside of Vim and it has not been
-" changed inside of Vim, automatically read it again.
-set autoread
+" Round indent to multiple of 'shiftwidth'. Applies to > and < commands.
+"
+" NOTE: CTRL-T and CTRL-D in Insert mode always round the indent to a multiple of
+" 'shiftwidth'
+set shiftround
 
-" use CTRL+{h, j, k, l} to navigate windows form any mode
-tnoremap <C-h> <C-\><C-N><C-w>h
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-tnoremap <C-l> <C-\><C-N><C-w>l
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" configure statusline
+set statusline=Filename:\ %f " add filename
+set statusline+=\  " add separator
+set statusline+=filetype:\ %y " add filetype
+set statusline+=%= " switch to the right side
+set statusline+=%l/%L " add file total and current lines
 
-" use <Esc> to exit terminal insert-mode
-tnoremap <Esc> <C-\><C-n>
+" }}}
 
-" toggle 'default' terminal
-nnoremap <leader>t :call ChooseTerm("term-slider", 1)<CR>
 
-" start terminal in current pane
-nnoremap <C-CR> :call ChooseTerm("term-pane", 0)<CR>
+" command-line mode mappings ---------------------- {{{
+
+" move between panes with hjkl
+snoremap <c-h> <esc><c-w>h
+snoremap <c-j> <esc><c-w>j
+snoremap <c-k> <esc><c-w>k
+snoremap <c-l> <esc><c-w>l
+
+" }}}
+
+
+" select mode mappings ---------------------- {{{
+
+" move between panes with hjkl.
+snoremap <c-h> <esc><c-w>h
+snoremap <c-j> <esc><c-w>j
+snoremap <c-k> <esc><c-w>k
+snoremap <c-l> <esc><c-w>l
+
+" }}}
+
+
+" operator pending mode mappings ---------------------- {{{
+
+" move between panes with hjkl.
+onoremap <c-h> <esc><c-w>h
+onoremap <c-j> <esc><c-w>j
+onoremap <c-k> <esc><c-w>k
+onoremap <c-l> <esc><c-w>l
+
+" 'operator'p: perform the operation defined by 'operator' inside the
+" parentheses.
+"
+" exemples:
+"     - dp: delete content from inside the parentheses
+"     - yp: yank content from inside the parentheses
+onoremap p i(
+
+" 'operator'in(: perform the operation defined by 'operator' inside the next
+" pair of parentheses. The final cursor position will be right after the '('
+" character.
+"
+" examples:
+" For all examples suppose you have the text 'a = (1 + 1) * (2 + 1)' and the
+" cursor position is at the 'a' character.
+"     - din(: delete the content from inside the next pair of parentheses, the
+"     resulting text would be 'a = () * (2 + 1)' and the cursor would be at
+"     the first occurrence of the ')' character.
+onoremap in( :<c-u>normal! f(vi(<cr>
+
+" 'operator'il(: perform the operation defined by 'operator' inside the last
+" pair of parentheses. The final cursor position will be right after the '('
+" character.
+"
+" examples:
+" For all examples suppose you have the text '(1 + 1) * (2 + 1) + a' and the
+" cursor position is at the 'a' character.
+"     - din(: delete the content from inside the last pair of parentheses, the
+"     resulting text would be 'a = (1 + 1) * () + a' and the cursor would be at
+"     the second occurrence of the ')' character.
+onoremap il( :<c-u>normal! F(vi(<cr>
+
+" 'operator'an(: perform the operation defined by 'operator' around the next
+" pair of parentheses. The final cursor position will be the the '(' character.
+"
+" examples:
+" For all examples suppose you have the text 'a = (1 + 1) * (2 + 1)' and the
+" cursor position is at the 'a' character.
+"     - dan(: delete the content from around the next pair of parentheses, the
+"     resulting text would be 'a =  * (2 + 1)' and the cursor would be right
+"     before thr '*' character.
+onoremap an( :<c-u>normal! f(va(<cr>
+
+" 'operator'al(: perform the operation defined by 'operator' around the last
+" pair of parentheses. The final cursor position will be at the '(' character.
+"
+" examples:
+" For all examples suppose you have the text '(1 + 1) * (2 + 1) + a' and the
+" cursor position is at the 'a' character.
+"     - dal(: delete the content from around the last pair of parentheses, the
+"     resulting text would be 'a = (1 + 1) *  + a' and the cursor would be
+"     right before the '+' character.
+onoremap al( :<c-u>normal! F(va(<cr>
+
+" }}}
+
+
+" visual mode mappings ---------------------- {{{
+
+" move between panes with hjkl
+xnoremap <c-h> <c-w>h
+xnoremap <c-j> <c-w>j
+xnoremap <c-k> <c-w>k
+xnoremap <c-l> <c-w>l
+
+" }}}
+
+
+" insert mode mappings ---------------------- {{{
+
+" <c-u>: convert current word to uppercase with
+inoremap <c-u> <esc>viwUea
+
+" jk: go to normal mode
+inoremap jk <esc>
+
+" move between panes with hjkl
+inoremap <c-h> <esc><c-w>h
+inoremap <c-j> <esc><c-w>j
+inoremap <c-k> <esc><c-w>k
+inoremap <c-l> <esc><c-w>l
+
+" }}}
+
+
+" normal mode mappings ---------------------- {{{
+
+" <leader>ev: open .vimrc (or init.vim) in a vertical split
+:nnoremap <leader>ev :split $MYVIMRC<cr>
+
+" <leader>sv: source .vimrc (or init.vim) file
+:nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" <esc>: first redraw the screen and removes any search highlighting, then
+" execute the default <esc> functionality
+"
+" NOTE: This does not change the option value of hlsearch, as soon as you use a
+" search command, the highlighting comes back.
+nnoremap <esc> <esc> :nohlsearch<cr>
+
+" H: go to the beginning of the current line
+nnoremap H 0
+
+" L: go to the end of the current line
+nnoremap L $
+
+" move between panes with hjkl
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+" }}}
+
+
+" python auto commands ---------------------- {{{
+
+augroup filetype_python
+    autocmd!
+
+    " In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
+    "
+    " Spaces are used in indents with the '>' and '<' commands and when
+    " 'autoindent' is on.
+    "
+    " To insert a real tab when 'expandtab' is on, use CTRL-V<Tab>.
+    autocmd FileType python set expandtab
+
+    " Number of spaces to use for each step of (auto)indent. Used for |>>|, |<<|
+    " etc.
+    autocmd FileType python set shiftwidth=4
+
+    " <localleader>c: comment current line
+    autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
+
+    " iff: insert 'if:' and move the cursor to right before the ':'
+    autocmd FileType python iabbrev <buffer> iff if:<left>
+
+    " deff: insert 'def ():' and move the cursor to right before the ')'
+    autocmd FileType python iabbrev <buffer> deff def ():<left><left>
+
+augroup END
+
+" }}}
+
+
+" {yaml, yml} auto commands ---------------------- {{{
+
+augroup filetype_yaml
+    autocmd!
+
+    " described in 'python auto commands'
+    autocmd FileType yaml set expandtab
+
+    " described in 'python auto commands'
+    autocmd FileType yaml set shiftwidth=2
+
+    " <localleader>c: comment current line
+    autocmd FileType yaml nnoremap <buffer> <localleader>c I# <esc>
+
+augroup END
+
+" }}}
+
+
+" Dockerfile auto commands ---------------------- {{{
+
+augroup filetype_dockerfile
+    autocmd!
+
+    " described in 'python auto commands'
+    autocmd BufWritePre,BufRead Dockerfile* set expandtab
+    autocmd BufWritePre,BufRead Dockerfile* set shiftwidth=2
+
+    " <localleader>c: comment current line
+    autocmd BufWritePre,BufRead Dockerfile* nnoremap <buffer> <localleader>c I# <esc>
+
+augroup END
+
+" }}}
+
+
+" Vimscript file settings ---------------------- {{{
+
+augroup filetype_vim
+    autocmd!
  
-function! ChooseTerm(termname, slider)
-    let pane = bufwinnr(a:termname)
-    let buf = bufexists(a:termname)
-    if pane > 0
-        " pane is visible
-        if a:slider > 0
-            :exe pane . "wincmd c"
-        else
-            :exe "e #"
-        endif
-    elseif buf > 0
-        " buffer is not in pane
-        if a:slider
-            :exe "botright split"
-	    :exe "res -15"
-        endif
-        :exe "buffer " . a:termname
-    else
-        " buffer is not loaded, create
-        if a:slider
-            :exe "botright split"
-	    :exe "res -15"
-        endif
-        :terminal
-        :exe "f " a:termname
-    endif
-endfunction
+    " enable folding
+    autocmd FileType vim setlocal foldmethod=marker
 
-" ============================================================================
-" Plugin Setup
-" ============================================================================
+    " described in 'python auto commands'
+    autocmd FileType vim set expandtab
+    autocmd FileType vim set shiftwidth=4
 
-" ===== fzf =====
+    " described in 'python auto commands'
+    autocmd FileType vim nnoremap <buffer> <localleader>c I" <esc>
+augroup END
 
-" find files
-nnoremap <silent> <leader>p :Files<CR>
+" }}}
 
-" find pattern
-nnoremap <silent> <leader>f :Ag<CR>
-
-" list buffers
-nnoremap <silent> <leader>a :Buffers<CR>
-
-" show file preview on search
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-" hide statusline of terminal buffer
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-
-" ===== coc ======
-
-" use <tab> for trigger completion and navigate to next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-" use <tab> and <S-tab> to navigate the completion list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" use <cr> to confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" make <cr> select the first completion item and confirm the completion
-" when no item has been selected
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
-" close preview window when completion is done.
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" if hidden is not set, TextEdit might fail.
-set hidden
-
-" some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
-
-" better display for messages
-set cmdheight=2
-
-" you will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" always show signcolumns
-set signcolumn=yes
-
-" use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-" remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" ===== nerdtree =====
-" open nerdtree with <C-n>
-map <C-n> :NERDTreeToggle<CR>
-
-" ===== gruvbox (theme) =====
-let g:gruvbox_contrast_dark='normal'
-colorscheme gruvbox
