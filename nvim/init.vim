@@ -1,6 +1,9 @@
 call plug#begin('~/.config/nvim')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
 call plug#end()
+
+let mapleader=" "
 
 " basic config ---------------------- {{{
 
@@ -75,6 +78,8 @@ augroup END
 
 " normal mode mappings ---------------------- {{{
 
+" coc-nvim mappings {{{
+
 " gd: goto definition.
 "
 " DEPENDENDENCIES: coc-nvim
@@ -100,6 +105,17 @@ nmap <silent> gr <Plug>(coc-references)
 
 " }}}
 
+" nerdtree mappings {{{
+
+" <leader>n: toggle file explorer.
+"
+" DEPENDENDENCIES: nerdtree
+nmap <leader>n :NERDTreeToggle<CR>
+
+" }}}
+
+" }}}
+
 
 " operator pending mode mappings ---------------------- {{{
 
@@ -119,5 +135,24 @@ omap af <Plug>(coc-funcobj-a)
 " DEPENDENDENCIES: coc-nvim
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
+
+" }}}
+
+
+" auto commands ---------------------- {{{
+
+" nerdtree auto commands {{{
+
+augroup nerdtree_group
+    autocmd!
+
+    " Close neovim if the only window left open is a nerdtree
+    autocmd bufenter *
+        \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree())
+        \ | q |
+        \ endif
+augroup END
+
+" }}}
 
 " }}}
