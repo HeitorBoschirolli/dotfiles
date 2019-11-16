@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let mapleader=" "
