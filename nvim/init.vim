@@ -71,3 +71,53 @@ augroup filetype_vim
 augroup END
 
 " }}}
+
+
+" normal mode mappings ---------------------- {{{
+
+" gd: goto definition.
+"
+" DEPENDENDENCIES: coc-nvim
+nmap <silent> gd <Plug>(coc-definition)
+
+" gt: goto type definition (return type for function, variable type for
+" variables etc.).
+"
+" DEPENDENDENCIES: coc-nvim
+nmap <silent> gt <Plug>(coc-type-definition)
+
+" gi: goto implementation
+"
+" DEPENDENDENCIES: coc-nvim
+nmap <silent> gi <Plug>(coc-implementation)
+
+" gr: goto references. Similar to perform a search operation, but only
+" matches the references of the selected object (can be a variable, a function
+" etc.).
+"
+" DEPENDENDENCIES: coc-nvim
+nmap <silent> gr <Plug>(coc-references)
+
+" }}}
+
+
+" operator pending mode mappings ---------------------- {{{
+
+" Create function text object
+"
+" DEPENDENDENCIES: coc-nvim
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" }}}
+
+
+" visual mode mappings ---------------------- {{{
+
+" Create function text object
+"
+" DEPENDENDENCIES: coc-nvim
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+
+" }}}
