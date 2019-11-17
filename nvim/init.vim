@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 let mapleader=" "
