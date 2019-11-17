@@ -11,6 +11,12 @@ let mapleader=" "
 
 " basic config ---------------------- {{{
 
+" When a file has been detected to have been changed outside of Vim and it has
+" not been changed inside of Vim, automatically read it again.
+" When the file has been deleted this is not done, so you have the text from
+" before it was deleted.
+set autoread
+
 " Show line numbers
 set number
 
@@ -167,5 +173,14 @@ augroup nerdtree_group
 augroup END
 
 " }}}
+
+augroup reaload_group
+    autocmd!
+
+    " Update buffer when file is changed on disk. Useful for events like git
+    " checkout and git reset
+    autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | checktime | endif
+    autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | GitGutter | endif
+augroup END
 
 " }}}
