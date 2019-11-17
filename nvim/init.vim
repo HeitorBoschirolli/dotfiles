@@ -5,6 +5,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 let mapleader=" "
@@ -182,5 +183,13 @@ augroup reaload_group
     autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | checktime | endif
     autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | GitGutter | endif
 augroup END
+
+" }}}
+
+
+" colorschemes ---------------------- {{{
+
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 
 " }}}
