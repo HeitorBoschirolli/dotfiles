@@ -9,6 +9,15 @@ let mapleader=" "
 
 " basic config ---------------------- {{{
 
+" Show line numbers
+set number
+
+" Always show signcolumn with 2 column width
+set signcolumn=yes:2
+
+" Use 2 lines for the command line
+set cmdheight=2
+
 " configure statusline
 set statusline=FileName:%f " display file name
 set statusline+=\ Filetype:%y " display file type
