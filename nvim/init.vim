@@ -6,6 +6,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'morhetz/gruvbox'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Always load vim-devicons as the last plugin
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let mapleader=" "
