@@ -7,6 +7,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'morhetz/gruvbox'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" fzf and fzf.vim work as one single plugin.
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 " Always load vim-devicons as the last plugin
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -134,6 +137,21 @@ nmap <silent> gr <Plug>(coc-references)
 "
 " DEPENDENDENCIES: nerdtree
 nmap <leader>n :NERDTreeToggle<CR>
+
+" }}}
+
+" fzf.vim mappings {{{
+
+" <leader>f: search for file in files known to git (git ls-files).
+"
+" DEPENDENCIES: fzf and fzf.vim
+nmap <leader>f :GFiles<CR>
+
+" <leader>g: recursively search for the pattern on the files from the directory
+" in which Vim was opened.
+"
+" DEPENDENCIES: fzf and fzf.vim
+nmap <leader>g :Ag<CR>
 
 " }}}
 
