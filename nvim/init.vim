@@ -140,6 +140,15 @@ nmap <leader>n :NERDTreeToggle<CR>
 " }}}
 
 
+" insert mode mappings ---------------------- {{{
+
+" <C-u>: make all letters of the current word uppercase without changing the
+" cursor position or leaving insert mode.
+inoremap <C-u> <esc>viwUea
+
+" }}}
+
+
 " operator pending mode mappings ---------------------- {{{
 
 " Create function text object
