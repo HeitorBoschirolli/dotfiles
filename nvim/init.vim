@@ -164,6 +164,24 @@ nmap <leader>fp :Ag<CR>
 
 " }}}
 
+" fugitive  mappings {{{
+
+" <leader>gs: open git status pane on horizontal split
+"
+" DEPENDENCIES: vim fugitive
+nnoremap <leader>gs :G<cr>
+
+" <leader>gc: commit staged files and open horizontal split to enter commit
+" message
+nnoremap <leader>gc :Gcommit<cr>
+
+" <leader>gl: open git log on horizontal split at the bottom of the current
+" window and occupies current pane with changes made on last commit. Tipically
+" ctrl-o is a good way to go back to the file you were editing.
+nnoremap <leader>gl :Glog<cr>
+
+" }}}
+
 " }}}
 
 
