@@ -110,6 +110,9 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 " <leader>sv: source .vimrc (or init.vim) file
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" <esc>: redraws the screen and removes any search highlighting
+nnoremap <esc> <esc>:nohl<cr>
+
 " coc-nvim mappings {{{
 
 " gd: goto definition.
