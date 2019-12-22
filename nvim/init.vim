@@ -104,6 +104,12 @@ augroup END
 
 " normal mode mappings ---------------------- {{{
 
+" <leader>ev: open .vimrc (or init.vim) in a vertical split
+nnoremap <leader>ev :split $MYVIMRC<cr>
+
+" <leader>sv: source .vimrc (or init.vim) file
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " coc-nvim mappings {{{
 
 " gd: goto definition.
