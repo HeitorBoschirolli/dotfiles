@@ -145,7 +145,7 @@ nmap <silent> gr <Plug>(coc-references)
 " <leader>n: toggle file explorer.
 "
 " DEPENDENDENCIES: nerdtree
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>tn :NERDTreeToggle<CR>
 
 " }}}
 
