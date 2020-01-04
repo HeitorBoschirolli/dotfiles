@@ -7,6 +7,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'morhetz/gruvbox'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'sheerun/vim-polyglot'
 " fzf and fzf.vim work as one single plugin.
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
