@@ -26,10 +26,8 @@ alias grep='grep --color=auto'
 alias df='df -H'
 alias du='du -h'
 
-# quando usamos "seta para cima" para visualizar o historico de
-# comandos, essa especificacao faz com que comandos iguais sejam
-# ignorados
-
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
 HISTCONTROL=ignoreboth
 export HISTCONTROL
 
