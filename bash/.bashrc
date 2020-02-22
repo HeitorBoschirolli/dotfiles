@@ -11,7 +11,6 @@ fi
 # ignore duplicates from fzf command history
 export HISTCONTROL=ignoreboth:erasedups
 
-alias gcc='gcc -ansi -pedantic -Wall -Werror -lm'
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
@@ -26,9 +25,6 @@ alias .='pwd'
 alias grep='grep --color=auto'
 alias df='df -H'
 alias du='du -h'
-
-# gobots aliases
-alias gobots-env='python ~/data/desktop-assistant/main.py <<< gobots'
 
 # quando usamos "seta para cima" para visualizar o historico de
 # comandos, essa especificacao faz com que comandos iguais sejam
