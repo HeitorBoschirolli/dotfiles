@@ -1,10 +1,3 @@
-# ${EUID} identifica o tipo de usuario:
-#    se for 0 eh o root, caso contrario, eh um usuario comum
-# \[\033[x;xxm]] indica uma cor
-# \w eh substituido pelo nome do diretorio atual
-# \$ eh substituido por $ caso o usuario seja normal ou por # caso seja root
-# \u eh substituido pelo nome do usuario
-
 # function that prints the name of the current Git branch in round brackets.
 git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
