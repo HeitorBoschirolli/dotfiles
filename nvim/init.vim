@@ -19,6 +19,10 @@ let mapleader=" "
 
 " basic config ---------------------- {{{
 
+" Ignore case when the pattern contains lowercase letters only.
+set ignorecase
+set smartcase
+
 " Enable loading the plugin files for specific file types.
 " This actually loads the file "ftplugin.vim" in 'runtimepath'.
 " The result is that when a file is edited its plugin file is loaded (if there
