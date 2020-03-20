@@ -23,6 +23,9 @@ let mapleader=" "
 set ignorecase
 set smartcase
 
+" color the column number 81.
+set cc=81
+
 " Enable loading the plugin files for specific file types.
 " This actually loads the file "ftplugin.vim" in 'runtimepath'.
 " The result is that when a file is edited its plugin file is loaded (if there
