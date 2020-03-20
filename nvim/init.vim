@@ -10,6 +10,7 @@ Plug 'sheerun/vim-polyglot'
 " fzf and fzf.vim work as one single plugin.
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 " Always load vim-devicons as the last plugin
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -17,6 +18,12 @@ call plug#end()
 let mapleader=" "
 
 " basic config ---------------------- {{{
+
+" Enable loading the plugin files for specific file types.
+" This actually loads the file "ftplugin.vim" in 'runtimepath'.
+" The result is that when a file is edited its plugin file is loaded (if there
+" is one for the detected filetypefiletype)
+filetype plugin on
 
 " When a file has been detected to have been changed outside of Vim and it has
 " not been changed inside of Vim, automatically read it again.
