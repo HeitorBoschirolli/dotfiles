@@ -19,6 +19,9 @@ let mapleader=" "
 
 " basic config ---------------------- {{{
 
+" Highlight the current line
+set cursorline
+
 " Ignore case when the pattern contains lowercase letters only.
 set ignorecase
 set smartcase
