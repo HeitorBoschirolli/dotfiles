@@ -280,6 +280,7 @@ augroup END
 
 " colorschemes ---------------------- {{{
 
+set termguicolors
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 set background=dark
