@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim')
+Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -285,4 +286,34 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 set background=dark
 
+" }}}
+
+
+" airline variables (variables, not mappings) ---------------------- {{{
+
+" powerline separators
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_alt_sep = ''
+
+" create symbols
+let g:airline_symbols = {}
+let g:airline_symbols.branch = ''
+
+" remove separators for empty sections
+let g:airline_skip_empty_sections = 1
+
+" remove mode indicator (insert, normal, etc.)
+let g:airline_section_a = ''
+
+" don't show how many hunks were added/removed since last commit
+let g:airline#extensions#hunks#enabled=0
+
+" replace section z with line numbers and current column
+let g:airline_section_z = '%4l/%4L :%3v'
+
+" remove icon indication file type (unix, dos) and encoding
+let g:airline_section_y = ''
+let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
 " }}}
