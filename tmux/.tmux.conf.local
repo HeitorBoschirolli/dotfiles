@@ -332,3 +332,5 @@ bind Tab last-window      # move to last active window
 
 #
 set-option -g repeat-time 0
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",*256col*:Tc"
