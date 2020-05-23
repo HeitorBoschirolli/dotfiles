@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim')
+Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
@@ -131,6 +132,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " <esc>: redraws the screen and removes any search highlighting
 nnoremap <esc> <esc>:nohl<cr>
 
+" vista.vim mappings {{{
+
+" <leader>st: toggles vista.vim sidebar
+" reads: 'sidebar toggle'
+nnoremap <leader>st :Vista!!<cr>
+" }}}
+
 " coc-nvim mappings {{{
 
 " gd: goto definition.
@@ -225,7 +233,6 @@ function! s:check_back_space() abort
 endfunction
 
 " }}}
-
 " }}}
 
 
@@ -316,4 +323,11 @@ let g:airline_section_z = '%4l/%4L :%3v'
 " remove icon indication file type (unix, dos) and encoding
 let g:airline_section_y = ''
 let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
+" }}}
+
+
+" vista.vim variables (variables, not mappings) ---------------------- {{{
+
+" use coc.nvim's language server as source of symbols
+let g:vista_default_executive = 'coc'
 " }}}
