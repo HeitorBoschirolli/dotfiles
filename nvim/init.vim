@@ -7,6 +7,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'gruvbox-community/gruvbox'
+Plug 'rafalbromirski/vim-aurora'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'sheerun/vim-polyglot'
 " fzf and fzf.vim work as one single plugin.
@@ -289,8 +290,8 @@ augroup END
 " colorschemes ---------------------- {{{
 
 set termguicolors
-colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
+colorscheme aurora
 set background=dark
 
 " }}}
