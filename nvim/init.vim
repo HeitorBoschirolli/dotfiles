@@ -178,12 +178,12 @@ nmap <leader>tn :NERDTreeToggle<CR>
 
 " fzf.vim mappings {{{
 
-" <leader>f: search for file in files known to git (git ls-files).
+" <leader>ff: search for file in files known to git (git ls-files).
 "
 " DEPENDENCIES: fzf and fzf.vim
 nmap <leader>ff :GFiles<CR>
 
-" <leader>g: recursively search for the pattern on the files from the directory
+" <leader>fp: recursively search for the pattern on the files from the directory
 " in which Vim was opened.
 "
 " DEPENDENCIES: fzf and fzf.vim
