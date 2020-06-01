@@ -189,6 +189,10 @@ nmap <leader>ff :GFiles<CR>
 " DEPENDENCIES: fzf and fzf.vim
 nmap <leader>fp :Ag<CR>
 
+" <leader>fb: search for files in vim buffers.
+"
+" DEPENDENCIES: fzf and fzf.vim
+nmap <leader>fb :Buffers<CR>
 " }}}
 
 " fugitive  mappings {{{
