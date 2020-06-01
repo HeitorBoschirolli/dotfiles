@@ -291,7 +291,7 @@ augroup END
 
 set termguicolors
 let g:gruvbox_contrast_dark='hard'
-colorscheme aurora
+colorscheme gruvbox
 set background=dark
 
 " }}}
