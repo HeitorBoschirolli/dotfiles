@@ -31,8 +31,8 @@ alias du='du -h'
 HISTCONTROL=ignoreboth
 export HISTCONTROL
 
-# set vim as the default editor
-export VISUAL=vim
+# set neovim as the default editor
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # necessary to lightline vim plugin to work correctly in tmux sessions
