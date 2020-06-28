@@ -38,30 +38,9 @@ export EDITOR="$VISUAL"
 # necessary to lightline vim plugin to work correctly in tmux sessions
 export TERM=xterm-256color
 
-# export PATH="/home/heitor/anaconda3/bin:$PATH"  # commented out by conda initialize
-
 export NVM_DIR="/home/heitor/.nvm"
 source "/home/heitor/.nvm/nvm.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/heitor/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/heitor/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/heitor/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/heitor/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
