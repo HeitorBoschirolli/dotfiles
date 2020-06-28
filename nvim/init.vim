@@ -11,7 +11,7 @@ Plug 'rafalbromirski/vim-aurora'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'sheerun/vim-polyglot'
 " fzf and fzf.vim work as one single plugin.
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 " Always load vim-devicons as the last plugin
