@@ -38,6 +38,7 @@ export EDITOR="$VISUAL"
 # necessary to lightline vim plugin to work correctly in tmux sessions
 export TERM=xterm-256color
 
+# Node Version Manager (NVM) stuff
 export NVM_DIR="/home/heitor/.nvm"
 source "/home/heitor/.nvm/nvm.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
