@@ -45,3 +45,6 @@ source "/home/heitor/.nvm/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# add poetry path
+export PATH="$HOME/.poetry/bin:$PATH"
