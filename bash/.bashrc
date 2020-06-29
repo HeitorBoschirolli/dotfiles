@@ -48,3 +48,6 @@ source "/home/heitor/.nvm/nvm.sh"
 
 # add poetry path
 export PATH="$HOME/.poetry/bin:$PATH"
+
+
+export PATH="$HOME/jetbrains-scripts:$PATH"
