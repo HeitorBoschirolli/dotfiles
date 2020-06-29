@@ -321,6 +321,9 @@ let g:airline_skip_empty_sections = 1
 " remove mode indicator (insert, normal, etc.)
 let g:airline_section_a = ''
 
+" remove git information
+let g:airline_section_b = ''
+
 " don't show how many hunks were added/removed since last commit
 let g:airline#extensions#hunks#enabled=0
 
