@@ -1,0 +1,42 @@
+let mapleader=" "
+
+" basic config ---------------------- {{{
+
+" Ignore case when the pattern contains lowercase letters only.
+set ignorecase
+set smartcase
+" }}}
+
+
+" normal mode mappings ---------------------- {{{
+
+" <leader>tn (reads test run): run the test you're on (function or class)
+nnoremap <leader>tr :action RunClass<CR>
+
+" <leader>ev: open .vimrc (or init.vim) in a vertical split
+nnoremap <leader>ev :split ~/.ideavimrc<cr>
+
+" <leader>sv: source .vimrc (or init.vim) file
+nnoremap <leader>sv :source ~/.ideavimrc<cr>
+
+" move splits without using <C-w> as prefix
+" <C-h>: move to the left split
+" <C-j>: move to the bottom split
+" <C-k>: move to the upper split
+" <C-l>: move to the right split
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+" }}}
+
+
+" insert mode mappings ---------------------- {{{
+
+" kj: exit insert mode
+inoremap kj <esc>
+
+" <C-u>: make all letters of the current word uppercase without changing the
+" cursor position or leaving insert mode.
+inoremap <C-u> <esc>viwUea
+" }}}
