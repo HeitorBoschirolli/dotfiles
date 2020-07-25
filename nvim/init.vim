@@ -222,6 +222,9 @@ nnoremap <leader>gl :Glog<cr>
 " cursor position or leaving insert mode.
 inoremap <C-u> <esc>viwUea
 
+" kj: exit insert mode
+inoremap kj <esc>
+
 " coc.nvim mappings {{{
 
 " Use tab for trigger completion with characters ahead and navigate.
